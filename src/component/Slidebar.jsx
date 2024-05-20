@@ -1,10 +1,9 @@
-import { motion } from 'framer-motion'
+import { motion,AnimatePresence } from 'framer-motion'
 import { NavLink } from 'react-bootstrap'
 import { route } from '../globalcomponent/Globalcomponent'
 import { FaBars } from 'react-icons/fa'
 import { BiSearch } from 'react-icons/bi'
 import { useState } from 'react'
-import { AnimatePresence } from 'framer-motion'
 const Slidebar = ({ children }) => {
     const [isOpen, setIsOpen] = useState(true)
     const toggle = () => setIsOpen(!isOpen)
@@ -13,7 +12,7 @@ const Slidebar = ({ children }) => {
             width: 0,
             padding: 0,
             opacity: 0
-        },
+        },  
         show: {
             width: "140px",
             padding: "5px 15px",
@@ -81,14 +80,14 @@ const Slidebar = ({ children }) => {
                                         key={routes.name}
                                         className='link'>
                                         <div className="icon">{routes.icon}</div>
-                                        <AnimatePresence>
+                                        
                                             {isOpen && <motion.div
                                                 variants={listAnimation}
                                                 initial="hidden"
                                                 animate="show"
                                                 exit="hidden"
                                                 className="link_text">{routes.name}</motion.div>}
-                                        </AnimatePresence>
+                                       
                                     </NavLink>
                                 )
                             })
